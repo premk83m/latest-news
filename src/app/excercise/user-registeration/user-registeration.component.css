@@ -1,0 +1,14 @@
+.usr_regist{
+  border:1px solid #7db4ef;
+  background: #cce5ff;
+  padding:20px;
+}
+.usr_regist h2, .usr_regist label{
+  color:#004085;
+}
+.error {
+  color: red;
+}
+.success {
+  color: green;
+}

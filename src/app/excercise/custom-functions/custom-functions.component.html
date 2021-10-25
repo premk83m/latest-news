@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 m-4">
+      <div class="alert alert-secondary" role="alert">
+        <h2 class="mb-4">Vowels & Digits:</h2>
+        <hr>
+        <p>Enter a String: {{strValue}}</p>
+        <p>Number of Vowels: {{strVowels}} ___ {{perValue}} %</p>
+        <p>Number of Digits: {{matchCount}} ___ {{matchPercent}}% </p>
+      </div>
+    </div>
+    <div class="col-12 m-4">
+      <div class="alert alert-secondary" role="alert">
+        <h2 class="mb-4">Password Validation:</h2>
+        <hr>
+          <div class="col-6">
+            <form #form="ngForm">
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" name="pswd" [(ngModel)]="pswd">
+                <p>{{this.pswdcharten}}</p>
+                <p>{{this.pswdletanddigits}}</p>
+                <p>{{this.pswd2digits}}</p>
+                 </div>
+              <p>{{pswd}}</p>
+              <p>{{form.value | json}}</p>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
+      </div>
+    </div>
+    <div class="col-12 m-4">
+      <div class="alert alert-secondary" role="alert">
+        <h2 class="mb-4">Results of Array Star:</h2>
+        <hr>
+        <div class="row">
+          <div class="col-1"><p *ngFor="let str of ratstar; let i = index">{{i}}:</p></div>
+          <div class="col-2"><p *ngFor="let starr of star">{{starr}}</p></div>
+          <div class="col-1"><p  *ngFor="let rat of rating">({{rat}})</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 m-4">
+      <div class="alert alert-secondary" role="alert">
+        <h2 class="mb-4">Details of Date:</h2>
+        <hr>
+        <div class="row">
+          <div class="col-12">
+            <p>Given Date: {{fulldate}}</p>
+            <p>Leap Year?: {{yyyy}} {{leapyear}}</p>
+            <p>No of Days in a month: {{yyyy}} is {{daysInMonth}} Days</p>
+            <p>Month Name: {{yyyy}} is {{monthName}} Days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 m-4">
+      <div class="alert alert-secondary" role="alert">
+        <h2 class="mb-4">Results og 2 Numbers:</h2>
+        <hr>
+        <div class="row">
+          <div class="col-12">
+            <p>Prime Numbers is: {{prime}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

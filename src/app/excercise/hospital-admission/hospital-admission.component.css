@@ -1,0 +1,18 @@
+.hospital {
+  background-color: #d1ecf1;
+  border:2px solid #8dd5e2
+}
+.hospital h1, .hospital h2, .hospital h3, .hospital p {
+  color: #06a9c3;
+  text-decoration: underline
+}
+.hospital label {
+  color: #028498;
+}
+.hospital .form-group.row {
+  background: #8cd5e2;
+  border:2px solid #5fbbcc;
+}
+.hospital h1 {
+  color:#005a69;
+}

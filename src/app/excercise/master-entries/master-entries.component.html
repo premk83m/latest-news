@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="m-5">
+      <h2 class="m-4">Master Entries Details</h2>
+      <div class="table-responsive">
+            <table class="table table-striped" style="width:100%" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let masData of masterData">
+                <td scope="col">{{masData.fields.id}}</td>
+                <td scope="col">{{masData.fields.name}}</td>
+                <td scope="col">{{masData.fields.type}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <!-- 1 -->
+
+</div>

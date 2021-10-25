@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="m-5">
+      <h2 class="m-4">Trainer Details</h2>
+      <div class="table-responsive">
+            <table class="table table-striped" style="width:100%" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>
+                  <table style="width:100%">
+                    <tr><th colspan="1">Gender</th></tr>
+                   </table>
+                </th>
+                <th>
+                  <table style="width:100%">
+                    <tr><th colspan="2">Qualification</th></tr>
+                  </table>
+                </th>
+                <th>
+                  <table style="width:100%">
+                    <tr><th colspan="2">Desiganation</th></tr>
+                  </table>
+                </th>
+                <th>
+                  <table style="width:100%">
+                    <tr><th colspan="4">Students</th></tr>
+                  </table>
+                </th>
+              </tr>
+            </thead>
+             <tbody>
+              <tr *ngFor="let trainer of listTrainers">
+                <td scope="col">{{trainer.fields.id}}</td>
+                <td scope="col">{{trainer.fields.name}}</td>
+                <td scope="col">{{trainer.fields.age}}</td>
+                <td scope="col">
+                  <table style="width:100%">
+                    <tbody *ngFor="let lsttrain of includelistTrainers">
+                      <tr>
+                        <td *ngIf="trainer.fields.gender.sys.id == lsttrain.sys.id">{{lsttrain.fields.name}}</td>
+                      </tr>
+                  </tbody>
+                  </table>
+                </td>
+                <td scope="col">
+                  <table style="width:100%">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div *ngFor="let lsttrain of includelistTrainers">
+                            <ul *ngFor="let lstQual of trainer.fields.qualification">
+                              <li *ngIf="lstQual.sys.id == lsttrain.sys.id">{{lsttrain.fields.name}}</li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                  </tbody>
+                  </table>
+                </td>
+                <td scope="col">
+                  <table style="width:100%">
+                    <tbody>
+                      <tr>
+                        <td *ngFor="let lsttrain of includelistTrainers">
+                          <ul>
+                            <li *ngIf="trainer.fields.designation.sys.id == lsttrain.sys.id">
+                              {{lsttrain.fields.name}}
+                          </li>
+                        </ul>
+                          </td>
+                      </tr>
+                  </tbody>
+                  </table>
+                </td>
+                <td>
+
+                  <div class="studlist" *ngFor = "let lsttrain of includelistTrainers">
+                      <ul *ngFor = "let stuData of trainer.fields.students">
+                          <li *ngIf = "stuData.sys.id == lsttrain.sys.id">{{lsttrain.fields.name}}</li>
+                          <li *ngIf = "stuData.sys.id == lsttrain.sys.id">
+                              <div *ngFor="let insStud of includelistTrainers">
+                                  <p *ngIf="lsttrain.fields.gender.sys.id == insStud.sys.id">{{insStud.fields.name}}</p>
+                              </div>
+                          </li>
+                          <li>
+                              <div *ngIf="stuData.sys.id == lsttrain.sys.id">
+                                  <ul *ngFor="let qualzInrData of lsttrain.fields.qualification">
+                                      <li *ngFor="let qcInrData of includelistTrainers">
+                                          <div *ngIf="qualzInrData.sys.id == qcInrData.sys.id">
+                                              {{qcInrData.fields.name}}</div>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+
+              </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <!-- 1 -->
+</div>

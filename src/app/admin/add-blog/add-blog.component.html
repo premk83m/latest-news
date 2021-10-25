@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <form #createForm="ngForm" name="form"  style="width:100%" autocomplete="off" (ngSubmit)="onSubmit(createForm)">
+      <h2>Create a news:</h2>
+      <div class="form-row jumbotron">
+        <div class="form-group col-md-12 col-lg-12">
+          <label for="inputAddress">News Title</label>
+          <input [(ngModel)]="blogpost.title" name="title" type="text" class="form-control" id="inputAddress" placeholder="Enter Title">
+        </div>
+        <div class="form-group col-md-12 col-lg-12">
+          <label for="inputAddress">News Description</label>
+          <input [(ngModel)]="blogpost.body" name="body" type="text" class="form-control" id="inputAddress" placeholder="Enter Description">
+        </div>
+        <div class="form-group col-md-12 col-lg-12">
+          <button type="submit" class="btn btn-success">Create</button>
+      </div>
+    </div>
+    </form>
+    </div>
+    </div>

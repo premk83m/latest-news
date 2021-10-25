@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+  <div class="m-5">
+    <h2 class="m-4">Product List</h2>
+      <div class="table-responsive">
+      <table class="table table-striped" style="width:100%">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Colour</th>
+            <th scope="col">Size</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of Product">
+            <th scope="row">{{prod.id}}</th>
+            <td>{{prod.Code}}</td>
+            <td>{{prod.Name}}</td>
+            <td>{{prod.Price}}</td>
+            <td>{{prod.Colour}}</td>
+            <td>{{prod.Size}}</td>
+            <td>{{prod.Description}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+</div>

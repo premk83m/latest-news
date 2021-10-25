@@ -1,0 +1,23 @@
+<table class="table table-striped" *ngFor="let posts of bloglist" style="width:380px;float:left;margin-right:30px;border:2px solid #e2e2e2">
+  <tr><th scope="col">#Id</th><td>{{posts.id}}</td></tr>
+  <tr><th scope="col">Blog Image</th><td><img class="card-img-top" src="https://images.ctfassets.net/szez98lehkfm/1UOq0qemfDL5zqOa0LvaZq/22f337f3e2da0f0ab39845a76c4593f4/Image__464_x_260.jpg?fit=fill&w=355&h=197&fm=webp" alt="Card image cap"></td></tr>
+  <tr><th scope="col">Title</th><td>{{posts.title}}</td></tr>
+  <tr><th scope="col">Description</th><td>{{posts.body}}</td></tr>
+  <tr><th scope="col">Edit Action</th>
+  <td>
+    <p>
+    <a class="btn btn-info btn-lg" (click) = "postEdit(posts)">
+      <span class="glyphicon glyphicon-edit"></span> Edit
+    </a>
+  </p>
+</td>
+  </tr>
+  <tr><th scope="col">Delete Action</th>
+    <td>
+      <p>
+      <a class="btn btn-info btn-lg" (click) = "deletePosts(posts)">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </a>
+    </p></td>
+  </tr>
+</table>

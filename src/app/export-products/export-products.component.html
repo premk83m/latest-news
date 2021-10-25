@@ -1,0 +1,89 @@
+<div class="cmn-cont wrap pd0">
+<div class="container">
+  <div class="row">
+    <form #form="ngForm" name="form1"  (submit)="onSubmit(form)"  style="width:100%" autocomplete="off">
+      <h2>Add a card:</h2>
+      <div class="form-row jumbotron">
+        <div class="form-group col-md-12 col-lg-12">
+          <label for="inputAddress">Product Image</label>
+          <input [(ngModel)]="product.prodimgurl" name="prodimgurl" type="text" class="form-control" id="inputAddress" placeholder="Enter Product Image">
+        </div>
+        <div class="form-group col-md-12 col-lg-12">
+          <label for="inputAddress">Product Title</label>
+          <input [(ngModel)]="product.prodtitle" name="prodtitle" type="text" class="form-control" id="inputAddress" placeholder="Enter Product Title">
+        </div>
+        <div class="form-group col-md-12 col-lg-12">
+          <label for="inputAddress">Product Link</label>
+          <input [(ngModel)]="product.prodlnk" name="prodlnk" type="text" class="form-control" id="inputAddress" placeholder="Enter Product Link">
+        </div>
+         <input [(ngModel)]="product.id" name="id" type="hidden" class="form-control">
+
+        <div class="form-group col-md-12 col-lg-12">
+          <button type="submit" class="btn btn-success">{{ isEdit ? 'Update' : 'Create'}}</button>
+      </div>
+    </div>
+    </form>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#Id</th>
+          <th scope="col">Product Image</th>
+          <th scope="col">Product Title</th>
+          <th scope="col">Product </th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prodlst of expproduct">
+          <th scope="row">{{prodlst.id}}</th>
+          <td>{{prodlst.prodimgurl}}</td>
+          <td>{{prodlst.prodtitle}}</td>
+          <td>{{prodlst.prodlnk}}</td>
+          <!-- <td>
+            <p>
+              <a href="#" class="btn btn-info btn-lg" (click) = "edit(prodlst)">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+              </a>
+            </p>
+          </td> -->
+          <!-- <td>
+            <p>
+            <a href="#" class="btn btn-info btn-lg" (click) = "delete(prodlst)">
+              <span class="glyphicon glyphicon-trash"></span> Trash
+            </a>
+          </p></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<div class="cmn-cont wrap pd0 hm_prod our_exp our_hmprod">
+  <div class="bgimg-2 prd_tra ">
+    <div class="container ">
+      <div class="row ">
+        <div class="row-cnt-1">
+          <div class="row-cnt-chld">
+            <article class="col-lg-3" *ngFor="let prod of expproduct">
+              <div class="ag-cnt">
+                <div class="ag-icn"><img src="assets/images/products/export-products/{{prod.prodimgurl}}" alt="groundnut_marachekku_oil_export" />
+                  <div class="prd_lnk">
+                    <a href="{{prod.prodlnk}}" title="View more details "><i class="fa fa-link " aria-hidden="true "></i> View more</a>
+                  </div>
+                </div>
+                <div class="ag-tit ">
+                  <div class="prdrw prd_rw1">
+                    <h2>{{prod.prodtitle}}</h2>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

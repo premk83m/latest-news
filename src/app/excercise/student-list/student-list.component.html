@@ -1,0 +1,147 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="m-5">
+      <h2 class="m-4">Student List</h2>
+      <div class="table-responsive">
+            <table class="table table-striped" style="width:100%">
+            <thead>
+              <tr>
+                <th scope="col">StudentId</th>
+                <th scope="col">StudentName</th>
+                <th scope="col">Age</th>
+                <th scope="col">FatherName</th>
+                <th scope="col">Address</th>
+                <th scope="col">Place</th>
+                <th scope="col">DateOfBirth</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone1</th>
+                <th scope="col">Phone2</th>
+                <th scope="col" colspan="4">
+                  <table width="100%">
+                      <tr>
+                        <th scope="col">InstituteName</th>
+                        <th scope="col">EducationType</th>
+                        <th scope="col">Percentage</th>
+                        <th scope="col">YearOfCompletion</th>
+                      </tr>
+                  </table>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let stud of students">
+                <th scope="row">{{stud.StudentId}}</th>
+                <td>{{stud.StudentName}}</td>
+                <td>{{stud.Age}}</td>
+                <td>{{stud.FatherName}}</td>
+                <td>{{stud.Address}}</td>
+                <td>{{stud.Place}}</td>
+                <td>{{stud.DateOfBirth}}</td>
+                <td>{{stud.Gender}}</td>
+                <td>{{stud.Email}}</td>
+                <td>{{stud.Phone1}}</td>
+                <td>{{stud.Phone2}}</td>
+                <td>
+                  <table style="width:100%">
+                    <tr *ngFor="let educ of stud.Education">
+                      <td>{{educ.InstituteName}}</td>
+                      <td>{{educ.EducationType}}</td>
+                      <td>{{educ.Percentage}}</td>
+                      <td>{{educ.YearOfCompletion}}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="m-5">
+      <h2 class="m-4">Gender Student List</h2>
+        <div class="table-responsive" >
+        <table class="table table-striped" style="width:100%">
+          <thead>
+            <table style="width:100%">
+            <tr>
+              <th scope="col">StudentId</th>
+              <th scope="col">StudentName</th>
+              <th scope="col">Age</th>
+              <th scope="col">FatherName</th>
+              <th scope="col">Address</th>
+              <th scope="col">Place</th>
+              <th scope="col">DateOfBirth</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone1</th>
+              <th scope="col">Phone2</th>
+            </tr>
+          </table>
+          </thead>
+          <tbody *ngFor="let stud of students">
+            <table style="width:100%">
+            <tr *ngIf="stud.Gender === 'Male'">
+              <th scope="col">{{stud.StudentId}}</th>
+              <td>{{stud.StudentName}}</td>
+              <td>{{stud.Age}}</td>
+              <td>{{stud.FatherName}}</td>
+              <td>{{stud.Address}}</td>
+              <td>{{stud.Place}}</td>
+              <td>{{stud.DateOfBirth}}</td>
+              <td>{{stud.Gender}}</td>
+              <td>{{stud.Email}}</td>
+              <td>{{stud.Phone1}}</td>
+              <td>{{stud.Phone2}}</td>
+            </tr>
+          </table>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="m-5">
+        <h2 class="m-4">Less than 40 Age Student List</h2>
+          <div class="table-responsive" >
+          <table class="table table-striped" style="width:100%">
+            <thead>
+              <table style="width:100%">
+              <tr>
+                <th scope="col">StudentId</th>
+                <th scope="col">StudentName</th>
+                <th scope="col">Age</th>
+                <th scope="col">FatherName</th>
+                <th scope="col">Address</th>
+                <th scope="col">Place</th>
+                <th scope="col">DateOfBirth</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone1</th>
+                <th scope="col">Phone2</th>
+              </tr>
+            </table>
+            </thead>
+            <tbody *ngFor="let stud of students">
+              <table style="width:100%">
+              <tr *ngIf="stud.Age < 40">
+                <th scope="col">{{stud.StudentId}}</th>
+                <td>{{stud.StudentName}}</td>
+                <td>{{stud.Age}}</td>
+                <td>{{stud.FatherName}}</td>
+                <td>{{stud.Address}}</td>
+                <td>{{stud.Place}}</td>
+                <td>{{stud.DateOfBirth}}</td>
+                <td>{{stud.Gender}}</td>
+                <td>{{stud.Email}}</td>
+                <td>{{stud.Phone1}}</td>
+                <td>{{stud.Phone2}}</td>
+              </tr>
+            </table>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,145 @@
+<div class="container">
+  <div class="row">
+      <div class="col-12 mt-5 mb-5 usr_regist">
+        <h2 class="text-center">User Registeration Form</h2>
+        <form [formGroup]="userregistFrom" class="mt-4" (ngSubmit)="userRegisteration()">
+          <!-- 1-->
+          <div class="form-row">
+            <div class="col-lg-2 p-0">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <select class="form-control form-control-lg" name="title" formControlName="title">
+                  <option *ngFor="let title of titles;let i = index">{{title}}</option>
+                </select>
+                    <div *ngIf="user.title.errors && isValidFormSubmitted != null && isValidFormSubmitted" [ngClass] = "'error'">
+                        <div>Title is required, Please select the dropdown.</div>
+                    </div>
+               </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control form-control-lg" placeholder="Enter firstname" name="firstname" formControlName="firstname">
+                <div *ngIf="user.firstname.errors && isValidFormSubmitted != null && isValidFormSubmitted" [ngClass] = "'error'">
+                  <div *ngIf="user.firstname.errors.required"><div>First Name is Required</div></div>
+                  <div *ngIf="user.firstname.errors.minlength"><div>First name must be at least 10 characters.</div></div>
+              </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control form-control-lg" placeholder="Enter lastname" name="lastname" formControlName="lastname">
+                <div *ngIf="user.lastname.errors && isValidFormSubmitted != null && isValidFormSubmitted" [ngClass] = "'error'">
+                  <div *ngIf="user.lastname.errors.required"><div>Last Name is Required</div></div>
+                  <div *ngIf="user.lastname.errors.minlength"><div>Last name must be at least 5 characters.</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- 1 -->
+        <!-- 2 -->
+        <div class="form-row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control form-control-lg" placeholder="Enter email" name="email" formControlName="email">
+              <div *ngIf="user.email.errors && isValidFormSubmitted != null && isValidFormSubmitted" [ngClass] = "'error'">
+                <div *ngIf="user.email.errors.required"><div>Email is Required</div></div>
+                <div *ngIf="user.email.errors.email"><div>Email must be a valid email address.</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="cnfemail">Confirm Email</label>
+              <input type="cnfemail" class="form-control form-control-lg" placeholder="Enter confirm email" name="cnfemail" formControlName="cnfemail">
+              <div *ngIf="user.cnfemail.errors && isValidFormSubmitted != null && isValidFormSubmitted" [ngClass] = "'error'">
+                <div *ngIf="user.cnfemail.errors.required"><div>Confirm Email is Required</div></div>
+                <div *ngIf="user.cnfemail.errors.email"><div>Confirm Email must be a valid email address.</div></div>
+                <div *ngIf="user.cnfemail.errors.emailNotMatched && isValidFormSubmitted"><div>Email & Confirm Email is not matched.</div></div>
+              </div>
+            </div>            
+          </div>
+        </div>
+      <!-- 2 -->
+        <!-- 3 -->
+        <div class="form-row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control form-control-lg" placeholder="Enter password" name="password" formControlName="password">
+              <div *ngIf="user.password.errors && isValidFormSubmitted != null && isValidFormSubmitted" [ngClass] = "'error'">
+                <div *ngIf="user.password.errors.required"><div>Password is Required</div></div>
+                <div *ngIf="user.password.errors.minlength"><div>Password must be at least 10 characters.</div></div>                
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="confpassword">Confirm Password</label>
+              <input type="password" class="form-control form-control-lg" placeholder="Enter confirm password" name="confpassword" formControlName="confpassword">
+              <div *ngIf="user.confpassword.errors && isValidFormSubmitted != null && isValidFormSubmitted" [ngClass] = "'error'">
+                <div *ngIf="user.confpassword.errors.required"><div>Confirm password is Required</div></div>
+                <div *ngIf="user.confpassword.errors.minlength"><div>Confirm Password must be at least 10 characters.</div></div>
+                <div *ngIf="user.confpassword.errors.passwordNotMatched && isValidFormSubmitted"><div>Password & Confirm Password is not matched.</div></div>                
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- 3 -->
+<!-- 3 -->
+      <div class="form-row">
+        <div class="col-lg-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="termsandcond" formControlName="termsandcond">
+            <label class="form-check-label" for="termsandcond">
+              Accept Terms & Conditions
+            </label>
+            <div *ngIf="user.termsandcond.errors && isValidFormSubmitted != null && isValidFormSubmitted" [ngClass] = "'error'">
+              <div><div>Terms & Conditions is Required</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row text-center">
+        <div class="col-lg-12">
+          <button type="submit" class="btn btn-primary btn-lg">Register</button>
+          <button type="reset" class="btn btn-secondary btn-lg ml-2">Cancel</button>
+        </div>
+      </div>
+        </form>
+      </div>
+
+      <div class="col-lg-12 mb-5">
+        <pre><code>{{userregistFrom.value | json}}</code></pre>
+        <pre><code>{{userregistFrom.valid | json}}</code></pre>
+    </div>
+    <div class="col-lg-12">
+    <div class="row" *ngIf="isValidFormSubmitted && userregistFrom.valid">
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
+              <th scope="col">Confirm Password</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{userregist.title}}</td>
+              <td>{{userregist.firstname}}</td>
+              <td>{{userregist.lastname}}</td>
+              <td>{{userregist.email}}</td>
+              <td>{{userregist.password}}</td>
+              <td>{{userregist.confpassword}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

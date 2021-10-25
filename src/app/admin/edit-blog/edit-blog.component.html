@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <form #editForm="ngForm" name="form"  style="width:100%" autocomplete="off" (ngSubmit)="onSubmit(editForm)">
+      <h2>Edit a blog:</h2>
+      <div class="form-row jumbotron">
+        <div class="form-group col-md-12 col-lg-12">
+          <label for="inputAddress">Blog Title</label>
+          <input [(ngModel)]="bloglists.title" name="title" type="text" class="form-control" id="inputAddress" placeholder="Enter Title">
+        </div>
+        <div class="form-group col-md-12 col-lg-12">
+          <label for="inputAddress">Blog Description</label>
+          <input [(ngModel)]="bloglists.body" name="body" type="text" class="form-control" id="inputAddress" placeholder="Enter Description">
+        </div>
+         <input [(ngModel)]="bloglists.id" name="id" type="hidden" class="form-control">
+
+        <div class="form-group col-md-12 col-lg-12">
+          <button type="submit" class="btn btn-success">Update</button>
+      </div>
+    </div>
+    </form>
+    </div>
+    </div>
+

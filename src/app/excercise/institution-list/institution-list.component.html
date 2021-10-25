@@ -1,0 +1,131 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="m-5">
+      <h2 class="m-4">Institution Details</h2>
+      <div class="table-responsive">
+            <table class="table table-striped" style="width:100%" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>InstitutionId</th>
+                <th>InstituteName</th>
+                <th>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th colspan="2">
+                        Country
+                      </th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Code</th>
+                      <th scope="col">Name</th>
+                    </tr>
+                  </table>
+                </th>
+                <!-- <th>
+                  <table width="100%" cellpadding="0" cellspacing="0" border="1">
+                    <tr>
+                      <th colspan="5">
+                        Profile
+                      </th>
+                    </tr>
+                    <tr>
+                      <th scope="col">ProfileID</th>
+                      <th scope="col">StartDate</th>
+                      <th scope="col">EndDate</th>
+                      <th scope="col">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="1">
+                          <tr>
+                            <th colspan="5">
+                              Section
+                            </th>
+                          </tr>
+                          <tr>
+                            <th scope="col">SectionId</th>
+                            <th scope="col">SectionTitle</th>
+                            <th scope="col">Content</th>
+                            <th scope="col">Media</th>
+                            <th scope="col">Sequence</th>
+                          </tr>
+                        </table>
+                      </th>
+                      <th scope="col">Gallery</th>
+                    </tr>
+                  </table>
+                </th> -->
+                <th>ProfileImage</th>
+                <th>Ranking</th>
+                <th>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th colspan="5">
+                        Country
+                      </th>
+                    </tr>
+                    <tr>
+                      <th scope="col">ReviewId</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Rating</th>
+                      <th scope="col">Users</th>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let instit of institutions">
+              <tr>
+                <td>{{instit.InstitutionId}}</td>
+                <td>{{instit.InstituteName}}</td>
+                <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td scope="col">{{instit.Country.Code}}</td>
+                      <td scope="col">{{instit.Country.Name}}</td>
+                    </tr>
+                </table>
+                </td>
+                <!-- <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td scope="col">{{instit.Profile.ProfileID}}</td>
+                      <td scope="col">{{instit.Profile.StartDate}}</td>
+                      <td scope="col">{{instit.Profile.EndDate}}</td>
+                      <td scope="col">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="1">
+                          <tr *ngFor="let sec of instit.Profile.Section">
+                            <td scope="col">{{sec.SectionId}}</td>
+                            <td scope="col">{{sec.SectionTitle}}</td>
+                            <td scope="col">{{sec.Content}}</td>
+                            <td scope="col">{{sec.Media}}</td>
+                            <td scope="col">{{sec.Sequence}}</td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td scope="col">{{instit.Profile.Gallery}}</td>
+                    </tr>
+                  </table>
+                </td> -->
+                <td>{{instit.ProfileImage}}</td>
+                <td>{{instit.Ranking}}</td>
+                <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tbody *ngFor="let review of instit.Reviews">
+                    <tr *ngIf="review.Rating >= 3 && review.Rating <= 4">
+                      <td scope="col">{{review.ReviewId}}</td>
+                      <td scope="col">{{review.Title}}</td>
+                      <td scope="col">{{review.Description}}</td>
+                      <td scope="col">{{review.Rating}}</td>
+                      <td scope="col">{{review.Users}}</td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <!-- 1 -->
+
+</div>

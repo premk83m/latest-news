@@ -1,0 +1,242 @@
+<section class="container productst">
+  <div class="wrapper">
+      <div class="cms">
+          <div class="container">
+              <div class="row">
+                  <div class="col-12 mt-5 mb-5 hospital">
+                      <h1 class="text-center mt-4">Hospital Admission</h1>
+                      <form [formGroup]="hospitalAdmiz"  class="mt-4" (ngSubmit)="hospitalSubmitForm()">
+                          <h2 class="text-center mt-4">Emergency room admission form</h2>
+                          <div class="form-group mt-5">
+                              <div class="col-lg-12">
+                                  <div class="form-group p-2 row">
+                                      <label for="date" class="col-sm-4 col-form-label col-form-label-lg">Date</label>
+                                      <div class="col-sm-8">
+                                          <input type="text" class="form-control form-control-lg" placeholder="DD/MM/YYYY" name="date" formControlName="date" id="date" />
+                                          <div *ngIf = "general_info.date.errors && isValidFormSubmitted">
+                                              <span *ngIf = "general_info.date.errors.required" style="color:red">Date is required</span>
+                                              <span *ngIf = "general_info.date.errors.pattern" style="color:red">
+                                                  Format DD/MM/YYYY</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group p-4">
+                              <h3 class="mb-4">General Information</h3>
+                              <div class="col-lg-12" formGroupName="general_info">
+                                  <div class="form-group row p-2" formGroupName="name">
+                                      <label for="flname" class="col-sm-4 col-form-label col-form-label-lg">Name</label>
+                                      <div class="col-sm-4">
+                                          <input type="text" class="form-control form-control-lg" placeholder="Your first name" name="flname" formControlName="flname" id="flname">
+                                          <label for="flname" class="col-sm-12 col-form-label col-form-label-lg">First name</label>
+                                           <div *ngIf = "geninfoname.flname.errors && isValidFormSubmitted">
+                                              <span *ngIf = "geninfoname.flname.errors.required" style="color:red">First Name is required</span>
+                                              <span *ngIf = "geninfoname.flname.errors.minlength" style="color:red">
+                                              First name must be at least 5 characters</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-4">
+                                          <input type="text" class="form-control form-control-lg" placeholder="Your lastname" name="lastname" formControlName="lastname" id="lastname">
+                                          <label for="lastname" class="col-sm-12 col-form-label col-form-label-lg">Last name</label>
+                                           <div *ngIf = "geninfoname.lastname.errors && isValidFormSubmitted">
+                                              <span *ngIf = "geninfoname.lastname.errors.required" style="color:red">Last Name is required</span>
+                                              <span *ngIf = "geninfoname.lastname.errors.minlength" style="color:red">
+                                              Last name must be at least 5 characters</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row p-2">
+                                      <label for="yourid" class="col-sm-4 col-form-label col-form-label-lg">ID</label>
+                                      <div class="col-sm-8">
+                                          <input type="text" class="form-control form-control-lg" placeholder="Your ID" name="yourid" formControlName="yourid" id="yourid" />
+                                           <div *ngIf = "geninfo.yourid.errors && isValidFormSubmitted">
+                                              <span *ngIf = "geninfo.yourid.errors.required" style="color:red">ID is required</span>
+                                              <span *ngIf = "geninfo.yourid.errors.maxlength" style="color:red">ID should be 6 Character length</span>
+                                              <span *ngIf = "geninfo.yourid.errors.pattern" style="color:red">Starts with Alphabets first 2 char and rest with numbers</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row p-2">
+                                      <label for="dob" class="col-sm-4 col-form-label col-form-label-lg">Date of Birth</label>
+                                      <div class="col-sm-8">
+                                          <input type="text" class="form-control form-control-lg" placeholder="Your DOB" name="dob" formControlName="dob" id="dob" />
+                                           <div *ngIf = "geninfo.dob.errors && isValidFormSubmitted">
+                                              <span *ngIf = "geninfo.dob.errors.required" style="color:red">DOB is required</span>
+                                              <span *ngIf = "geninfo.dob.errors.pattern" style="color:red">
+                                                  Format DD/MM/YYYY. We should use number & /.</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row p-2">
+                                      <label for="sex" class="col-sm-4 col-form-label col-form-label-lg">Sex</label>
+                                      <div class="col-sm-8">
+                                          <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="sex" formControlName="sex" id="Feminine" value="Feminine">
+                                          <label class="form-check-label" for="Feminine">Feminine</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="sex" formControlName="sex" id="Masculine" value="Masculine">
+                                          <label class="form-check-label" for="Masculine">Masculine</label>
+                                          </div>
+                                          <div *ngIf="geninfo.sex.errors && isValidFormSubmitted != null && isValidFormSubmitted" style="color:red">Sex is required</div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row p-2" formGroupName="phone">
+                                      <label for="areacode" class="col-sm-4 col-form-label col-form-label-lg">Phone Number</label>
+                                      <div class="col-sm-3">
+
+                                          <input type="text" class="form-control form-control-lg" placeholder="Area code" name="areacode" formControlName="areacode" id="areacode">
+                                          <label for="areacode" class="col-sm-12 col-form-label col-form-label-lg">Area code</label>
+                                          <div *ngIf = "geninfophone.areacode.errors && isValidFormSubmitted">
+                                              <span *ngIf = "geninfophone.areacode.errors.required" style="color:red">Areacode is required</span>
+                                              <span *ngIf = "geninfophone.areacode.errors.maxlength" style="color:red">The Max length is 3 digits</span>
+                                              <span *ngIf = "geninfophone.areacode.errors.pattern" style="color:red">
+                                                  Should be a number and Starts with +</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-5">
+
+                                          <input type="text" class="form-control form-control-lg" placeholder="Phone number" name="phnumb" formControlName="phnumb" id="phnumb">
+                                          <label for="phnumb" class="col-sm-12 col-form-label col-form-label-lg">Phone number</label>
+                                          <div *ngIf = "geninfophone.phnumb.errors && isValidFormSubmitted">
+                                              <span *ngIf = "geninfophone.phnumb.errors.required" style="color:red">It should be a number</span>
+                                              <span *ngIf = "geninfophone.phnumb.errors.pattern" style="color:red">Allowed characters are space and -</span>
+                                              <span *ngIf = "geninfophone.phnumb.errors.maxlength" style="color:red">The max length is 10</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row p-2">
+                                      <label for="address" class="col-sm-4 col-form-label col-form-label-lg">Address</label>
+                                      <div class="col-sm-8" formGroupName="addresses">
+                                          <div class="adtxtarea">
+                                              <textarea class="form-control form-control-lg" placeholder="Enter your address" name="address" formControlName="address">
+                                              </textarea>
+                                               <div *ngIf = "geninfoaddr.address.errors && isValidFormSubmitted">
+                                                  <span *ngIf = "geninfoaddr.address.errors.required" style="color:red">Address is required</span>
+                                                  <span *ngIf = "geninfoaddr.address.errors.maxlength" style="color:red">Address must not exceed over 250 characters</span>
+                                              </div>
+                                          </div>
+                                          <div class="citystate">
+
+                                              <div class="form-group row p-2">
+                                                  <div class="col-sm-6">
+                                                      <select class="form-control form-control-lg" name="city" formControlName="city">
+                                                           <option>Select your city</option>
+                                                           <option *ngFor="let citydisp of cityList">{{citydisp}}</option>
+                                                      </select>
+                                                      <label for="city" class="col-sm-12 col-form-label col-form-label-lg">city</label>
+                                                      <div *ngIf="geninfoaddr.city.errors && isValidFormSubmitted" style="color: red;">
+                                                          <span style="color:red">City is Required</span>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-sm-6">
+
+                                                      <select class="form-control form-control-lg" name="state" formControlName="state">
+                                                          <option>Select your city</option>
+                                                          <option *ngFor="let statedisp of stateList">{{statedisp}}</option>
+                                                     </select>
+                                                      <label for="state" class="col-sm-12 col-form-label col-form-label-lg">State</label>
+                                                       <div *ngIf="geninfoaddr.state.errors && isValidFormSubmitted" style="color: red;">
+                                                          <span style="color:red">State is Required</span>
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                          </div>
+                                          <div class="postalcode">
+                                              <input type="text" class="form-control form-control-lg" placeholder="Postal code" name="postalcode" formControlName="postalcode" id="postalcode">
+                                              <label for="postalcode" class="col-sm-12 col-form-label col-form-label-lg">Postal code</label>
+                                               <div *ngIf = "geninfoaddr.postalcode.errors && isValidFormSubmitted">
+                                                  <span *ngIf = "geninfoaddr.postalcode.errors.required" style="color:red">Postcode is required</span>
+                                                  <span *ngIf = "geninfoaddr.postalcode.errors.maxlength" style="color:red">Postcode should be 6 characters length</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row p-2">
+                                      <label for="emailad" class="col-sm-4 col-form-label col-form-label-lg">Email</label>
+                                      <div class="col-sm-8">
+                                          <input type="email" class="form-control form-control-lg" placeholder="Your email" name="emailad" formControlName="emailad" id="emailad" />
+                                           <div *ngIf = "geninfo.emailad.errors && isValidFormSubmitted">
+                                              <span *ngIf = "geninfo.emailad.errors.required" style="color:red">Email is required</span>
+                                              <span *ngIf = "geninfo.emailad.errors.email" style="color:red">Email must be valid email address</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row p-2">
+                                      <label for="confirmemailad" class="col-sm-4 col-form-label col-form-label-lg">Confirm Email</label>
+                                      <div class="col-sm-8">
+                                          <input type="email" class="form-control form-control-lg" placeholder="Your confirm email" name="confirmemailad" formControlName="confirmemailad" id="confirmemailad" />
+                                           <div *ngIf = "geninfo.confirmemailad.errors && isValidFormSubmitted">
+                                              <span *ngIf = "geninfo.confirmemailad.errors.required" style="color:red">Email is required</span>
+                                              <span *ngIf = "geninfo.confirmemailad.errors.email" style="color:red">Email must be valid email address</span>
+                                              <span *ngIf = "geninfo.confirmemailad.errors" style="color:red">Email and confirm email should match</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                            </div>
+                            <div class="col-lg-12" formGroupName="emergency">
+                              <div class="form-group row p-2">
+                                <label for="emailad" class="col-sm-4 col-form-label col-form-label-lg">In case of emergency</label>
+                                <div class="col-sm-8">
+                                    <div class="emname">
+                                        <input type="text" class="form-control form-control-lg" placeholder="Name" name="emname" formControlName="emname" id="emname" />
+                                        <label for="emname" class="col-sm-12 col-form-label col-form-label-lg">Name</label>
+                                         <div *ngIf = "emergency.emname.errors && isValidFormSubmitted">
+                                            <span *ngIf = "emergency.emname.errors.required" style="color:red">Name is required</span>
+                                            <span *ngIf = "emergency.emname.errors.maxlength" style="color:red">Name should be 10 characters length</span>
+                                        </div>
+                                    </div>
+                                    <div class="emname">
+                                        <div class="form-group row p-2">
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control form-control-lg" placeholder="Area code" name="emareacode" formControlName="emareacode" id="emareacode">
+                                                <label for="emareacode" class="col-sm-12 col-form-label col-form-label-lg">Area code</label>
+                                                <div *ngIf = "emergency.emareacode.errors && isValidFormSubmitted">
+                                                    <span *ngIf = "emergency.emareacode.errors.required" style="color:red">Area code is required</span>
+                                                    <span *ngIf = "emergency.emareacode.errors.pattern" style="color:red">Area code should be a numbers</span>
+                                                    <span *ngIf = "emergency.emareacode.errors.maxlength" style="color:red">Area code should be 6 characters length</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-lg" placeholder="Phone number" name="emphnumb" formControlName="emphnumb" id="emphnumb">
+                                                <label for="emphnumb" class="col-sm-12 col-form-label col-form-label-lg">Phone number</label>
+                                               <div *ngIf = "emergency.emphnumb.errors && isValidFormSubmitted">
+                                                    <span *ngIf = "emergency.emphnumb.errors.required" style="color:red">Phone number is required</span>
+                                                    <span *ngIf = "emergency.emphnumb.errors.pattern" style="color:red">Allowed characters are space and -</span>
+                                                    <span *ngIf = "emergency.emphnumb.errors.maxlength" style="color:red">The max length is 14</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    <div class="emname">
+                                        <input type="text" class="form-control form-control-lg" placeholder="Relationship" name="emname" formControlName="relate" id="relate" />
+                                        <label for="relate" class="col-sm-12 col-form-label col-form-label-lg">Relationship</label>
+                                        <div *ngIf = "emergency.relate.errors && isValidFormSubmitted">
+                                            <span *ngIf = "emergency.relate.errors.required" style="color:red">Relationship is required</span>
+                                            <span *ngIf = "emergency.relate.errors.maxlength" style="color:red">Relationship should be 10 characters length</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                  <div class="form-row text-center">
+                                      <div class="col-lg-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                                        <button type="reset" (click)="resetData()" class="btn btn-warning btn-lg ml-2">Reset</button>
+                                       </div>
+                                    </div>
+                            </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-12 mb-5">
+              <pre><code>{{hospitalAdmiz.value | json}}</code></pre>
+              <pre><code>{{hospitalAdmiz.valid | json}}</code></pre>
+          </div>
+      </div>
+  </div>
+</section>
+

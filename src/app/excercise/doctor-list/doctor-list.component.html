@@ -1,0 +1,237 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="m-5">
+      <h2 class="m-4">Doctor List</h2>
+      <div class="table-responsive">
+            <table class="table table-striped" style="width:100%" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>ID</th>
+                <th>DoctorName</th>
+                <th colspan="1">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th colspan="2">
+                        Specialist
+                      </th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Year</th>
+                    </tr>
+                </table>
+                </th>
+                <th>Address</th>
+                <th>DateOfBirth</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th colspan="1">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th scope="col" colspan="4">Experience</th>
+                    </tr>
+                    <tr>
+                      <td scope="col">HospitalName</td>
+                      <td scope="col">StartDate</td>
+                      <td scope="col">EndDate</td>
+                      <td scope="col">YearOfExperience</td>
+                    </tr>
+                </table>
+                </th>
+                <th>Age</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doctor of doctors; let i=index">
+                <th>{{i}}</th>
+                <td>{{doctor.ID}}</td>
+                <td>{{doctor.DoctorName}}</td>
+                <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td>{{doctor.Specialist.Name}}</td>
+                      <td>{{doctor.Specialist.Year}}</td>
+                    </tr>
+                </table>
+                </td>
+                <td>{{doctor.Address}}</td>
+                <td>{{doctor.DateOfBirth}}</td>
+                <td>{{doctor.Gender}}</td>
+                <td>{{doctor.Email}}</td>
+                <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td scope="col">{{doctor.Experience.HospitalName}}</td>
+                      <td scope="col">{{doctor.Experience.StartDate}}</td>
+                      <td scope="col">{{doctor.Experience.EndDate}}</td>
+                      <td scope="col">{{doctor.Experience.YearOfExperience}}</td>
+                    </tr>
+                </table>
+                </td>
+                <td>{{doctor.Age}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <!-- 2-->
+  <div class="row">
+    <div class="m-5">
+      <h2 class="m-4">Gender: Male Doctor List</h2>
+      <div class="table-responsive">
+            <table class="table table-striped" style="width:100%" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>ID</th>
+                <th>DoctorName</th>
+                <th colspan="1">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th colspan="2">
+                        Specialist
+                      </th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Year</th>
+                    </tr>
+                </table>
+                </th>
+                <th>Address</th>
+                <th>DateOfBirth</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th colspan="1">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th scope="col" colspan="4">Experience</th>
+                    </tr>
+                    <tr>
+                      <td scope="col">HospitalName</td>
+                      <td scope="col">StartDate</td>
+                      <td scope="col">EndDate</td>
+                      <td scope="col">YearOfExperience</td>
+                    </tr>
+                </table>
+                </th>
+                <th>Age</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let doctor of doctors; let i=index">
+              <tr *ngIf="doctor.Gender === 'Male' && doctor.Age >= 40">
+                <th>{{i}}</th>
+                <td>{{doctor.ID}}</td>
+                <td>{{doctor.DoctorName}}</td>
+                <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td>{{doctor.Specialist.Name}}</td>
+                      <td>{{doctor.Specialist.Year}}</td>
+                    </tr>
+                </table>
+                </td>
+                <td>{{doctor.Address}}</td>
+                <td>{{doctor.DateOfBirth}}</td>
+                <td>{{doctor.Gender}}</td>
+                <td>{{doctor.Email}}</td>
+                <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td scope="col">{{doctor.Experience.HospitalName}}</td>
+                      <td scope="col">{{doctor.Experience.StartDate}}</td>
+                      <td scope="col">{{doctor.Experience.EndDate}}</td>
+                      <td scope="col">{{doctor.Experience.YearOfExperience}}</td>
+                    </tr>
+                </table>
+                </td>
+                <td>{{doctor.Age}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <!-- 2-->
+  <!-- 3-->
+  <div class="row">
+    <div class="m-5">
+      <h2 class="m-4">Less than 40 Age Doctor List</h2>
+      <div class="table-responsive">
+            <table class="table table-striped" style="width:100%" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>ID</th>
+                <th>DoctorName</th>
+                <th colspan="1">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th colspan="2">
+                        Specialist
+                      </th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Year</th>
+                    </tr>
+                </table>
+                </th>
+                <th>Address</th>
+                <th>DateOfBirth</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th colspan="1">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th scope="col" colspan="4">Experience</th>
+                    </tr>
+                    <tr>
+                      <td scope="col">HospitalName</td>
+                      <td scope="col">StartDate</td>
+                      <td scope="col">EndDate</td>
+                      <td scope="col">YearOfExperience</td>
+                    </tr>
+                </table>
+                </th>
+                <th>Age</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let doctor of doctors; let i=index">
+              <tr *ngIf="doctor.Age >= 40">
+                <th>{{i}}</th>
+                <td>{{doctor.ID}}</td>
+                <td>{{doctor.DoctorName}}</td>
+                <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td>{{doctor.Specialist.Name}}</td>
+                      <td>{{doctor.Specialist.Year}}</td>
+                    </tr>
+                </table>
+                </td>
+                <td>{{doctor.Address}}</td>
+                <td>{{doctor.DateOfBirth}}</td>
+                <td>{{doctor.Gender}}</td>
+                <td>{{doctor.Email}}</td>
+                <td>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td scope="col">{{doctor.Experience.HospitalName}}</td>
+                      <td scope="col">{{doctor.Experience.StartDate}}</td>
+                      <td scope="col">{{doctor.Experience.EndDate}}</td>
+                      <td scope="col">{{doctor.Experience.YearOfExperience}}</td>
+                    </tr>
+                </table>
+                </td>
+                <td>{{doctor.Age}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <!-- 3-->
+</div>
