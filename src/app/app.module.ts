@@ -35,6 +35,7 @@ import { MasterEntriesComponent } from './excercise/master-entries/master-entrie
 import { EntriesService } from './excercise/master-entries/entries.service';
 import { ListTrainersComponent } from './excercise/list-trainers/list-trainers.component';
 import { TrainersService } from './excercise/list-trainers/trainers.service';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { TrainersService } from './excercise/list-trainers/trainers.service';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    SlickCarouselModule
   ],
   providers: [
     Title, Meta,

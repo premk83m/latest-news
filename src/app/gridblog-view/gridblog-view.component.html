@@ -1,28 +1,29 @@
-    <div class="main">
-      <div class="slider slider-for">
-                  <div><h3>11</h3></div>
-          <div><h3>22</h3></div>
-          <div><h3>3</h3></div>
-          <div><h3>4</h3></div>
-          <div><h3>5</h3></div>
-
-
-
+<!--
+<div class="row">
+  <div class="col-xs-12 col-md-4 col-lg-3 col-xl-3" *ngFor="let blog of bloglist">
+    <div class="card-deck mb-4">
+      <div class="card">
+        <img class="card-img-top" src="https://images.ctfassets.net/szez98lehkfm/1UOq0qemfDL5zqOa0LvaZq/22f337f3e2da0f0ab39845a76c4593f4/Image__464_x_260.jpg?fit=fill&w=355&h=197&fm=webp" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{blog.title}}</h5>
+          <p class="card-text">{{blog.body}}</p>
+        </div>
       </div>
-        <div class="slider slider-nav">
-        <div class="col-xs-12 col-md-4 col-lg-3 col-xl-3" *ngFor="let blog of bloglist">
-          <div class="card-deck mb-4" >
-            <div class="card">
-              <img class="card-img-top" src="https://images.ctfassets.net/szez98lehkfm/1UOq0qemfDL5zqOa0LvaZq/22f337f3e2da0f0ab39845a76c4593f4/Image__464_x_260.jpg?fit=fill&w=355&h=197&fm=webp"  alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">{{blog.title}}</h5>
-                <p class="card-text">{{blog.body}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
     </div>
+  </div>
+</div>
+-->
 
-
-    
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+  <div ngxSlickItem class="col-xs-12 col-md-4 col-lg-3 col-xl-3" *ngFor="let blog of bloglist">
+    <div class="card-deck mb-4">
+      <div class="card">
+        <img class="card-img-top" src="https://images.ctfassets.net/szez98lehkfm/1UOq0qemfDL5zqOa0LvaZq/22f337f3e2da0f0ab39845a76c4593f4/Image__464_x_260.jpg?fit=fill&w=355&h=197&fm=webp" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{blog.title}}</h5>
+          <p class="card-text">{{blog.body}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-slick-carousel>

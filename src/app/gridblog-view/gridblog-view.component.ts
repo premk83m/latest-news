@@ -13,7 +13,9 @@ export class GridblogViewComponent implements OnInit {
   blogpost: BlogList = new BlogList();
   bloglist: BlogList[] = [];
   isEnabled: boolean = false;
-
+    
+  slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};  
+    
   constructor(private addblogservice: AddblogService, public router: Router) { }
   public href: any = '';
   url: any = '';
